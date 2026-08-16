@@ -1,13 +1,34 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-void main() {
-  //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-  // to see how IntelliJ IDEA suggests fixing it.
-  IO.println(String.format("Hello and welcome!"));
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args){
+        Scanner scanner  = new Scanner(System.in);
+        System.out.println("---------\nHello Dear User!!!\n---------");
+        System.out.println("Dou you want to measure your weight? Yes/No ");
+        String yn = scanner.nextLine();
+        yn = yn.toLowerCase();
+        if(yn.equalsIgnoreCase("yes")){
+            System.out.print("Enter your weight: ");
+            double weight = scanner.nextDouble();
+            scanner.nextLine();
+            System.out.print("Is it kgs or lbs? ");
+            String kl = scanner.nextLine();
+            kl = kl.toLowerCase();
+            if(kl.equalsIgnoreCase("kgs")){
+                double toLbs = weight* 2.2046;
+                System.out.printf("Your weight is %.2f lbs",toLbs);
+            } else if (kl.equalsIgnoreCase("lbs")) {
+                double toKgs = weight/2.2046;
+                System.out.printf("Your weight is %.2f kgs",toKgs);
+            }
+            else{
+                System.out.println("You stupid");
+            }
+        }
+        else{
+            System.out.println("Okey bye");
+        }
 
-  for (int i = 1; i <= 5; i++) {
-    //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-    // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-    IO.println("i = " + i);
-  }
+
+
+    }
 }
